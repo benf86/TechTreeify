@@ -1,0 +1,46 @@
+NAME;GENERAL ABILITY;GENERAL EFFECT;RESOURCE ABILITY;UNLOCKS BUILDINGS;UNLOCKS UNITS;IMAGE PATH;IS PREREQUISITE FOR
+Code of Laws;Once per turn, after you win a battle, add 1 coin token to this tech.;Enables Republic;;Trading Post (7P);;;Democracy, Civil Service
+Agriculture;Immediately grow your capital into a metropolis.;;;;;;Irrigation
+Navy;Each time you build an army using a city action, you may place that figure in the outskirts of any of your cities with a shipyard.;;;Shipyard 5(P);;;Sailing
+Animal Husbandry;Battle: Once per battle, heal up to a total of 3 wounds from your units in play.;;City Management: (Wheat) One of your cities produces an extra 3(P) this turn.;;;;Biology
+Navigation;You may cross water, but you may not end your movement in it.;;;Harbor 7(P);;;Sailing
+Masonry;;Stacking limit: 3;;City Walls (7P);;;Construction
+Writing;;;City Management: (Spy) Cancel an action being performed by another player (may not cancel resource abilities).;Library 5(P);;;Bureaucracy, Printing Press
+Currency;;;City Management: (Incense) Gain 3(C) ;Market 7(P);;;Banking
+Metalworking;;;Battle: (Iron) When playing a unit from hand, add 3 to the strength of its attack.;Barracks 7(P);;;Metal Casting, Construction
+Horseback Riding;;Travel Speed: 3;Trade: (Silk) Gain 9(T). Another player of your choice then gains 6(T).;;;;Logistics, Chivalry
+Pottery;;Culture Hand Size: +1;City Management: (2?) Add 1 coin token to this tech (max 4).;Granary 5(P);;;Construction
+Philosophy;;;City Management: (3?) Gain a random great person.;Temple 7(P);;;Education, Democracy, Mysticism
+Printing Press;;Stacking Limit: 4;City Management:(5(C)) Add 1 coin token to this tech (max 4).;University 8(P);;;Mass Media
+Civil Service;;Coin: +1, Culture Hand Size: +1;Any Time: (Spy) Cancel a culture event.;;;;Monarchy
+Bureaucracy;Once per turn, you may switch one of your social policies during Research.;Coin: +1;;;;;Banking
+Monarchy;;Enables Monarchy;City Management: (Silk) Obsolete 1 ancient wonder, or kill 1 random unit from another players standing forces.;;;;
+Construction;;;City Management: (Wheat) One of your cities produces an extra 5(P) this turn.;Workshop 7(P);;;Railroad
+Mysticism;When you draw a culture event card, draw an extra card from that deck, keeping one and discarding the other.;;City Management: (Spy) Force another player to discard a coin token (not investment) of your choice.;;;;Theology
+Chivalry;;Enables Feudalism;City Management: (Incense) Gain 5(C).;;Cavalry Lvl: 2;;
+Irrigation;;Maximum Cities: 3;;;;;Biology
+Sailing;You may cross or end your movement in water.;Travel Speed: 4;;;;;Logistics
+Democracy;;Enables Democracy;City Management: (6(T)) Add 1 coin token to this tech (max 4).;;Infantry Lvl: 2;;Communism
+Engineering;Once per turn, when spending (P) from a city, you may split the (P) however you wish to purchase two items instead of only one.;;;Aqueduct 8(P);;;Flight, Steam Power, Railroad
+Mathematics;;;Battle: (Iron) While involved in a battle, deal up to 3 wounds, spread across enemy units however you choose.;;Ranged Lvl: 2;;Ballistics, Computers, Flight, Education, Engineering
+Logistics;;;;;Cavalry Lvl: 2, Infantry Lvl: 2, Ranged Lvl: 2;;Military Science
+Banking;;;City Management: (Wheat) One of your cities produces an extra 7(P) this turn.;Bank 10(P);;;
+Ecology;Advancing on the culture track costs you 1 less (T) for every 3 coins you possess.;;Start of Turn: (Wheat) Change an empty non-mountain square into a forest, grassland, desert, or water square for the rest of the game.;;;;
+Railroad;;Coin: +1;;Iron Mine 10(P);Cavalry Lvl: 3;;
+Education;Once per turn, when you build a wonder, add 1 coin token to this tech (max 4).;;City Management: (Wheat+Iron+ Silk+Incense) Immediately learn a teach of your choice for free.;;;;Atomic Theory
+Biology;Battle: Once per battle, heal all wounds from your units in play.;Stacking Limit: 5;;;;;Plastics, Gunpowder, Ecology
+Metal Casting;;;City Management: (Incense) Gain 7(C).;;Ranged Lvl: 3;;Replaceable Parts
+Gunpowder;;;City Management: (2?) Obsolete an ancient or medieval wonder or destroy a building of your choice.;;Infantry Lvl: 3;;Combustion
+Military Science;Your cities each produce 1 extra (P) for every three coins you possess.;;;Academy 10(P);;;
+Communism;;Unlocks Communism;Movement: (Spy) Choose a square. No figure may leave that square this turn. This may interrupt a figure's movement.;;;;
+Steam Power;You may cross or end your movement in water.;Travel Speed: 5;City Management: (Silk) Move all of your figures in one square to any water square on the map. These figures may not move again this turn.;;;;Combustion
+Theology;;Culture Hand Size: +1, Enables Fundamentalism;;Cathedral 10(P);;;
+Flight;You may cross or end your movement in water. Also, you may ignore enemy figures, huts, villages, and cities when moving.;Travel Speed: 6;;;Airplanes;;You Can Into Space
+Plastics;Start of Turn: Once per turn, build a unit, figure, or building you've unlocked for free.;;City Management: (Wheat) One of your cities produces an extra 10 (P) this turn.;;;;Computers
+Combustion;Once per turn, when one of your armies ends its movement on a building, destroy that building. If one of your armies attacks a city with walls, the walls are destroyed before the battle.;;;;Cavalry Lvl: 4;;You Can Into Space
+Computers;Your battle and culture hand sizes are increased by 1 for every 5 coins you possess.;Coin: +1;;;;;Mass Media
+Mass Media;Your culture events cannot be canceled, regardless of ther game effects.;;Any Time: (Spy) Cancel a resource ability. The resources spent to activate the ability are lost.;;;;
+Replaceable Parts;;Stacking Limit: 6;;;Infantry Lvl: 4;;
+Ballistics;;;Battle: (Iron) While involved in a battle, deal up to 6 wounds, spread across enemy untis however you choose.;;Ranged Lvl: 4;;
+Atomic Theory;;;City Management: (Uranium) Take an extra action with each of your cities.,Movement: Nuke a non-capital city. The city is destroyed, along with all buildings, wonders, figures, and great people in its outskirts.;;;;
+You Can Into Space;;;;;;;

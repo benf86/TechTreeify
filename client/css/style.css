@@ -1,0 +1,94 @@
+line {
+    stroke: #555;
+}
+
+.link {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}
+
+.node text {
+    pointer-events: none;
+}
+
+.tech {
+    height: 150px;
+    width: 400px;
+    position: relative;
+    border:1px solid black;
+    margin-top: 10px;
+    padding-left: 15px;
+    font-size: 11px;
+}
+
+.tech .name {
+    position: absolute;
+    top: 5px;
+    left: 100px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.tech .has_prerequisites {
+    position: absolute;
+    width: 100px;
+    padding: 2px;
+    top: 5px;
+    right: 300px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.tech .is_prerequisite_for {
+    position: absolute;
+    width: 100px;
+    padding: 2px;
+    top: 5px;
+    left: 300px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.tech .general_effect {
+    position: absolute;
+    width: 300px;
+    top: 30px;
+    left: 50px;
+    text-align: center;
+}
+
+.tech .unlocks_buildings {
+    position: absolute;
+    width: 120px;
+    bottom: 10px;
+    right: 10px;
+    text-align: center;
+}
+
+.tech .unlocks_units {
+    position: absolute;
+    width: 120px;
+    bottom: 10px;
+    left: 10px;
+    text-align: center;
+}
+
+.tech .general_ability {
+    position: absolute;
+    width: 380px;
+    top: 55px;
+    left: 10px;
+    text-align: center;
+}
+
+.tech .resource_ability {
+    position: absolute;
+    width: 380px;
+    top: 90px;
+    left: 10px;
+    text-align: center;
+    
+}

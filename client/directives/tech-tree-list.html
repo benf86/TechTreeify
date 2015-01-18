@@ -1,0 +1,12 @@
+<div ng-controller="TechTreeCtrl as Ttc">
+	<div class="tech" ng-repeat="tech in Ttc.techsNoArrays">
+		<div ng-show="tech.general_ability" class="general_ability">{{tech.general_ability}}</div>
+		<div ng-show="tech.general_effect" class="general_effect">{{tech.general_effect}}</div>
+		<div ng-show="tech.resource_ability" class="resource_ability">{{tech.resource_ability}}</div>
+		<div ng-show="tech.has_prerequisites" class="has_prerequisites">{{tech.has_prerequisites}}</div>
+		<div ng-show="tech.is_prerequisite_for" class="is_prerequisite_for">{{tech.is_prerequisite_for}}</div>
+		<div ng-show="tech.name" class="name">{{tech.name}}</div>
+		<div ng-show="tech.unlocks_buildings" class="unlocks_buildings">{{tech.unlocks_buildings}}</div>
+		<div ng-show="tech.unlocks_units" class="unlocks_units">{{tech.unlocks_units}}</div>
+	</div>
+</div>
