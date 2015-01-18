@@ -5,8 +5,8 @@ var nodes = d3.values(json_content),
         });
     }));
 
-var w = 800,
-    h = 800;
+var w = 1920,
+    h = 1080;
 
 var svg = d3.select("body").append("svg:svg")
     .attr("width", w)

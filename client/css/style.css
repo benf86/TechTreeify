@@ -12,6 +12,19 @@ line {
     pointer-events: none;
 }
 
+#techEditor {
+    position: fixed;
+    top: 73px;
+    left: 450px;
+    width: 100px;
+    float:right;
+}
+
+#techList {
+    position: absolute;
+    top:40px;
+}
+
 .tech {
     height: 150px;
     width: 400px;

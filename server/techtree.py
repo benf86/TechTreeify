@@ -49,7 +49,7 @@ class TechTree():
             print '_' * 60
 
     def build_dictionary(self):
-        my_tree = {my_name:
+        my_tree = {"technologies":[
                        {'name': my_tech.name,
                         'general_ability': my_tech.general_ability,
                         'general_effect': my_tech.general_effect,
@@ -60,8 +60,8 @@ class TechTree():
                         'has_prerequisites': my_tech.has_prerequisites.keys(),
                         'is_prerequisite_for':
                             my_tech.is_prerequisite_for.keys()}
-                   for my_name, my_tech in self.techs.iteritems() if
-                   self.techs} or {'message': 'error'}
+                   for my_tech in self.techs.values() if
+                   self.techs]} or {'message': 'error'}
         return my_tree
 
     def jsonify(self):

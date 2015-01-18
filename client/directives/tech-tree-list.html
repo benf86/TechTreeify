@@ -1,12 +1,27 @@
 <div ng-controller="TechTreeCtrl as Ttc">
-	<div class="tech" ng-repeat="tech in Ttc.techsNoArrays">
-		<div ng-show="tech.general_ability" class="general_ability">{{tech.general_ability}}</div>
-		<div ng-show="tech.general_effect" class="general_effect">{{tech.general_effect}}</div>
-		<div ng-show="tech.resource_ability" class="resource_ability">{{tech.resource_ability}}</div>
-		<div ng-show="tech.has_prerequisites" class="has_prerequisites">{{tech.has_prerequisites}}</div>
-		<div ng-show="tech.is_prerequisite_for" class="is_prerequisite_for">{{tech.is_prerequisite_for}}</div>
-		<div ng-show="tech.name" class="name">{{tech.name}}</div>
-		<div ng-show="tech.unlocks_buildings" class="unlocks_buildings">{{tech.unlocks_buildings}}</div>
-		<div ng-show="tech.unlocks_units" class="unlocks_units">{{tech.unlocks_units}}</div>
+	<div id="techList">
+		<input type="text" ng-model="searchTech" placeholder="Filter by" autofocus>
+		<div class="tech" ng-click="reconnectEditedTech($event, tech)" ng-repeat="tech in Ttc.techsNoArrays | filter:searchTech | orderBy:'name'">
+			<div class="general_ability">{{tech.general_ability}}</div>
+			<div class="general_effect">{{tech.general_effect}}</div>
+			<div class="resource_ability">{{tech.resource_ability}}</div>
+			<div class="has_prerequisites">{{tech.has_prerequisites}}</div>
+			<div class="is_prerequisite_for">{{tech.is_prerequisite_for}}</div>
+			<div class="name">{{tech.name}}</div>
+			<div class="unlocks_buildings">{{tech.unlocks_buildings}}</div>
+			<div class="unlocks_units">{{tech.unlocks_units}}</div>
+		</div>
+	</div>
+	<div id="techEditor">
+		<form>
+			<div class="general_ability">General Ability<input type="text" ng-model="editor_general_ability" placeholder="{{Ttc.editedTech.general_ability}}"></div>
+			<div class="general_effect">General Effect<input type="text" ng-model="editor_general_effect" placeholder="{{Ttc.editedTech.general_effect}}"></div>
+			<div class="resource_ability">Resource Ability<input type="text" ng-model="editor_resource_ability" placeholder="{{Ttc.editedTech.resource_ability}}"></div>
+			<div class="has_prerequisites">Prerequisites<input type="text" ng-model="editor_has_prerequisites" placeholder="{{Ttc.editedTech.has_prerequisites}}"></div>
+			<div class="is_prerequisite_for">Tech leads to<input type="text" ng-model="editor_is_prerequisite_for" placeholder="{{Ttc.editedtech.is_prerequisite_for}}"></div>
+			<div class="name">Name<input type="text" ng-model="editor_name" placeholder="{{Ttc.editedTech.name}}"></div>
+			<div class="unlocks_buildings">Unlocks buildings<input type="text" ng-model="editor_unlocks_buildings" placeholder="{{Ttc.editedTech.unlocks_buildings}}"></div>
+			<div class="unlocks_units">Unlocks units<input type="text" ng-model="editor_unlocks_units" placeholder="{{Ttc.editedTech.unlocks_units}}"><div>
+		</form>
 	</div>
 </div>
