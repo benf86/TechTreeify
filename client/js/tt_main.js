@@ -25,6 +25,8 @@
 		};
 
 		$scope.reconnectEditedTech = function (event, tech) {
+			$scope.editor = tech;
+			console.log(tech);
 			var techElement = angular.element(event.currentTarget);
 			
 			var resetTech = function (techToResetElement, techHtml) {
@@ -36,11 +38,13 @@
 				resetTech(techTreeList.previousEdit.element, techTreeList.previousEdit.values);
 			}
 
-			var reconnectTech = function () {
+			var reconnectTech = function (scope) {
 				techElement.html("");
 				var newHtml = "";
 				for (key in tech) {
-					newHtml += "<div class=" + key + ">{{editor_" + key + "}}</div>"
+					if (key !== '$$hashKey') {
+						newHtml += "<div class=" + key + ">{{editor." + key + "}}</div>"
+					}
 				}
 				techElement.html(newHtml);
 				techElement.append($compile(techElement.contents())($scope));
