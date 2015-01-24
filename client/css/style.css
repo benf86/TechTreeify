@@ -14,10 +14,20 @@ line {
 
 #techEditor {
     position: fixed;
-    top: 73px;
+    top: 75px;
     left: 450px;
-    width: 100px;
-    float:right;
+    width: 300px;
+    text-align: center;
+}
+
+#techEditor input {
+    width: 280px;
+    margin-bottom: 15px
+}
+
+#techEditor .saveBtn {
+    left: 450px;
+    width: 140px;;
 }
 
 #techList {
@@ -104,10 +114,4 @@ line {
     left: 10px;
     text-align: center;
     
-}
-
-.saveBtn {
-    position: fixed;
-    top: 560px;
-    left: 450px;
 }

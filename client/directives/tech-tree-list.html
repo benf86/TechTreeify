@@ -1,6 +1,11 @@
 <div>
 	<div id="techList">
-		<input type="text" ng-model="searchTech" placeholder="Filter by" autofocus>
+		<form>
+			<input type="text" ng-model="getTech" placeholder="Display tree ('techs' = demo)" autofocus>
+			<input type="submit" class="saveBtn" value="Get Tech Tree" ng-click="getTechTree(getTech)"><br>
+		</form>
+		<h2 ng-show="Ttc.name">{{Ttc.name}}</h2><br>
+		<input type="text" ng-model="searchTech" placeholder="Search for...">
 		<div class="tech" ng-click="reconnectEditedTech($event, tech)" ng-repeat="tech in Ttc.techsNoArrays | filter:searchTech | orderBy:'name'">
 			<div class="general_ability">{{tech.general_ability}}</div>
 			<div class="general_effect">{{tech.general_effect}}</div>
@@ -14,16 +19,16 @@
 	</div>
 	<div id="techEditor">
 		<form>
-			<div class="name">Name<input type="text" ng-model="editor.name" value="{{Ttc.editedTech.name}}" placeholder="{{Ttc.editedTech.name}}"></div>
-			<div class="has_prerequisites">Prerequisites<input type="text" ng-model="editor.has_prerequisites" value="{{Ttc.editedTech.has_prerequisites}}" placeholder="{{Ttc.editedTech.has_prerequisites}}"></div>
-			<div class="is_prerequisite_for">Tech leads to<input type="text" ng-model="editor.is_prerequisite_for" value="{{Ttc.editedtech.is_prerequisite_for}}" placeholder="{{Ttc.editedtech.is_prerequisite_for}}"></div>
-			<div class="general_ability">General Ability<input type="text" ng-model="editor.general_ability" value="{{Ttc.editedTech.general_ability}}" placeholder="{{Ttc.editedTech.general_ability}}"></div>
-			<div class="general_effect">General Effect<input type="text" ng-model="editor.general_effect" value="{{Ttc.editedTech.general_effect}}" placeholder="{{Ttc.editedTech.general_effect}}"></div>
-			<div class="resource_ability">Resource Ability<input type="text" ng-model="editor.resource_ability" value="{{Ttc.editedTech.resource_ability}}" placeholder="{{Ttc.editedTech.resource_ability}}"></div>
-			<div class="unlocks_buildings">Unlocks buildings<input type="text" ng-model="editor.unlocks_buildings" value="{{Ttc.editedTech.unlocks_buildings}}" placeholder="{{Ttc.editedTech.unlocks_buildings}}"></div>
-			<div class="unlocks_units">Unlocks units<input type="text" ng-model="editor.unlocks_units" value="{{Ttc.editedTech.unlocks_units}}" placeholder="{{Ttc.editedTech.unlocks_units}}"><div>
-			<input class="btn saveBtn" type="submit" value="save changes" ng-click="saveEdits()">
-			<input class="btn resetBtn" type="reset" value="reset changes" ng-click="resetCurrentlyEdited()">
+			<div class="name">Name<input type="text" ng-model="editor.name"></div>
+			<div class="has_prerequisites">Prerequisites<input type="text" ng-model="editor.has_prerequisites"></div>
+			<div class="is_prerequisite_for">Tech leads to<input type="text" ng-model="editor.is_prerequisite_for"></div>
+			<div class="general_ability">General Ability<input type="text" ng-model="editor.general_ability"></div>
+			<div class="general_effect">General Effect<input type="text" ng-model="editor.general_effect"></div>
+			<div class="resource_ability">Resource Ability<input type="text" ng-model="editor.resource_ability"></div>
+			<div class="unlocks_buildings">Unlocks buildings<input type="text" ng-model="editor.unlocks_buildings"></div>
+			<div class="unlocks_units">Unlocks units<input type="text" ng-model="editor.unlocks_units"><div>
+			<input ng-show="editing" class="saveBtn" type="submit" value="save changes" ng-click="saveEdits()">
+			<input class="saveBtn" type="submit" value="upload tech tree" ng-click="sendTechTree()">
 		</form>
 	</div>
 </div>

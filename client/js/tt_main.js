@@ -11,13 +11,38 @@
 			/* Fetch data from API */
 			controller: function ($scope, $http) {
 				var techTreeList = this;
-				techTreeList.techs = [];
+				var APIPrefix = '/api/'
+				var getURL = APIPrefix + 'gettechtree/';
+				var postURL = APIPrefix + 'posttechtree/';
+				var demoTechTreeSrc = 'sample_tech_tree.json';
 
-				$http.get('/api/json')
-					.success(function(data) {
-						techTreeList.techs = data.technologies;
-						techTreeList.techsNoArrays = techTreeList.DisArrayed(data.technologies);
-					});
+				$scope.getTechTree = function(treeName) {
+					techTreeList.techsNoArrays = {};
+					$http.get(getURL + treeName)
+						.success(function(data) {
+							techTreeList.techsNoArrays = techTreeList.DisArrayed(data.technologies);
+							if (data.message === 'success') {
+								techTreeList.name = data.name;
+							} else {
+								techTreeList.name = data.name + ' not found';
+							}
+						});
+				};
+
+				$scope.sendTechTree = function() {
+					newTechTree = angular.toJson(techTreeList, true);
+					$http.post(postURL, newTechTree)
+						.success(function(data, status, headers, config) {
+						alert(data.message)
+						})
+
+						.error(function(data, status, headers, config) {
+							alert('Upload unsuccessful');
+							console.log(data);
+							console.log(status);
+							console.log(headers);
+						});
+				};
 
 				techTreeList.DisArrayed = function(techTreeList) {
 					for (item in techTreeList) {
@@ -37,8 +62,10 @@
 			its values to the form's fields' models */
 			link: function link(scope, element, attrs) {
 				scope.editor = {};
+				scope.editing = false;
 				scope.previousEdit = {'element': '', 'values': ''};
 				scope.reconnectEditedTech = function (event, techObject) {
+					scope.editing = true;
 
 					/* Reset tech to last saved state */
 					var resetTech = function (techToResetElement, techHtml) {
@@ -46,25 +73,24 @@
 							techToResetElement.append($compile(techToResetElement.contents())(scope));
 					};
 
-					/* Reset tech if button pressed */
-					scope.resetCurrentlyEdited = function () {
-						resetTech(scope.previousEdit.element, scope.previousEdit.values);
-					};
-
 					/* Save tech if button pressed */
 					scope.saveEdits = function () {
-						for (key in scope.editor) {
-							currentlyEditedTechObjectReference[key] = scope.editor[key];
-						}	
+						if (scope.editor) {
+							var newHtml = '';
+							for (key in scope.editor) {
+								currentlyEditedTechObjectReference[key] = scope.editor[key];
+								newHtml += '<div class="' + key + '">' + scope.editor[key] + '</div>'
+							}
+							scope.previousEdit.values = newHtml;
+						}
 					};
 
 					/* Reset tech if another clicked while editing previous*/
 					if (scope.previousEdit.element) {
-						console.log("Resetting on default");
 						resetTech(scope.previousEdit.element, scope.previousEdit.values);
+
 					}
 
-					
 					/* Get the clicked tech */
 					var techElement = angular.element(event.currentTarget);
 					var currentlyEditedTechObjectReference = techObject;
@@ -73,13 +99,13 @@
 					
 					scope.editor = {};
 
-					/* populate the editor form - auto-execute */
+					/* populate the editor form */
 					var populateEditor = function() {
 						for (key in techObject) {
 							if (techObject.hasOwnProperty(key) && key !== '$$hashKey') {
 								scope.editor[key] = techObject[key];		
+							}
 						}
-					}
 					};
 
 					/* Re-render the tech with bindings to the editor form - auto-executes on click */
@@ -93,17 +119,6 @@
 						techElement.html(newHtml);
 						techElement.append($compile(techElement.contents())(scope));
 					}();
-
-					/* Re-render the tech with bindings to controller */
-					var unBindFromEditor = function () {
-						techElement.html("");
-						var newHtml = "";
-						for (key in scope.editor) {
-							newHtml += '<div class="' + key + '">{{Ttc.techsNoArrays[editor["indexOf"]]["' + key + '"]}}</div>'
-						}
-						techElement.html(newHtml);
-						techElement.append($compile(techElement.contents())(scope));
-					};
 				};	
 			}
 		};
