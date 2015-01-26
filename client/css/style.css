@@ -12,6 +12,12 @@ line {
     pointer-events: none;
 }
 
+#visualization {
+    position: fixed;
+    left: 800px;
+    top: 25px;
+}
+
 #techEditor {
     position: fixed;
     top: 75px;
