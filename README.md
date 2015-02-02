@@ -1,6 +1,2 @@
 # TechTreeify
-Turn a CSV-Tech Tree into a nicely visualized one. (Created with Sid Meier's Civilization: The Board Game in mind)
-
-Todo:
-* persist data changes and additions
-* write Flask-based CRUD API for #1
+Turn a JSON-Tech Tree into a nicely visualized one, or write a completely new one with the interface. (Created with Sid Meier's Civilization: The Board Game in mind)
