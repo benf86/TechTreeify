@@ -1,5 +1,5 @@
 <form id="techEditor">
 			<input ng-show="editor" ng-repeat="key in editorKeys" placeholder="{{key}}" ng-model="editor[key]">
-			<input type="submit" value="add tech" ng-click="createNewTech()">
-			<input type="button" value="export tech tree" ng-click="exportTree()">
+			<input type="button" value="add new tech" ng-click="createNewTech()">
+			<input type="button" value="export tech tree" ng-click="exportTree()" ng-show="myTechs.name">
 </form>

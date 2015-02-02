@@ -15,8 +15,8 @@
 						.attr("float", 'right');
 
 				scope.visualize = function() {
-					var technologies = scope.myTechs.techs;
-					var json_content = {}
+					var technologies = scope.myTechs.technologies.slice();
+					var json_content = {};
 					var techIndices = {};
 					for (tech in technologies) {
 						techIndices[technologies[tech].name] = parseInt(tech);
@@ -32,7 +32,7 @@
 
 					for (source in json_content) {
 						if (json_content[source].is_prerequisite_for) {
-							var ipf = json_content[source].is_prerequisite_for.split(',');
+							var ipf = json_content[source].is_prerequisite_for;
 							for (target in ipf) {
 								links.push({'source': parseInt(source), 'target': techIndices[ipf[target].trim()]});
 							}

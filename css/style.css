@@ -21,7 +21,7 @@ line {
 #techEditor {
     position: fixed;
     top: 75px;
-    left: 450px;
+    left: 500px;
     width: 300px;
     text-align: center;
 }
@@ -31,14 +31,18 @@ line {
     margin-bottom: 15px
 }
 
-#techEditor .saveBtn {
-    left: 450px;
-    width: 140px;;
-}
-
 #techList {
     position: absolute;
     top:40px;
+}
+
+#delBtn {
+    position: relative;
+    margin-left: 400px;
+    margin-top: -1px;
+    height: 20px;
+    width: 22px;
+    border: 1px solid black;
 }
 
 .tech {
