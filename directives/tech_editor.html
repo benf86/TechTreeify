@@ -2,4 +2,7 @@
 			<input ng-show="editor" ng-repeat="key in editorKeys" placeholder="{{key}}" ng-model="editor[key]">
 			<input type="button" value="add new tech" ng-click="createNewTech()">
 			<input type="button" value="export tech tree" ng-click="exportTree()" ng-show="myTechs.name">
+			<input type="button" value="remove all prerequisites" ng-click="removeAllPrerequisites()" ng-show="editor">
+			<input id="uploadField" ng-show="upload" type="text" ng-model="uploadField">
+			<input id="uploadField" ng-show="upload" type="button" value="process JSON" ng-click="processUploaded(uploadField)">
 </form>

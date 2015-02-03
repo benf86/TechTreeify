@@ -50,12 +50,17 @@
 					});
 			},
 			link: function link(scope) {
-				if (!scope.myTechs) {
-					scope.myTechs = {
+				var prepareMyTechs = function() {
+					var myTechs = {
 						technologies: [],
 						numberOfTechs: 0,
-						keys: Object.keys(new newTech())
+						keys: Object.keys(new newTech()),
+						name: ''
 					};
+					return myTechs;
+				};
+				if (!scope.myTechs) {
+					scope.myTechs = prepareMyTechs();
 				}
 
 					function newTech(name, general_ability, general_effect, has_prerequisites, is_prerequisite_for, resource_ability, unlocks_buildings, unlocks_units) {
@@ -90,13 +95,19 @@
 					}
 				};
 
-				scope.showSample = function() {
-					scope.nav = 'create';
-					for (tech in scope.sampleTechTree.technologies) {
-						myTech = scope.sampleTechTree.technologies[tech];
+				var parseJson = function(myJson) {
+					scope.myTechs = prepareMyTechs();
+					for (tech in myJson.technologies) {
+						myTech = myJson.technologies[tech];
 						scope.myTechs.technologies.push(new newTech(myTech.name, myTech.general_ability, myTech.general_effect, myTech.has_prerequisites, myTech.is_prerequisite_for, myTech.resource_ability, myTech.unlocks_buildings, myTech.unlocks_units));
 						scope.myTechs.name = scope.sampleTechTree.name;
 					}
+					scope.editor = scope.myTechs.technologies[-1];
+				}
+
+				scope.showSample = function() {
+					scope.nav = 'create';
+					parseJson(scope.sampleTechTree);
 					scope.visualize();
 				}
 
@@ -139,13 +150,27 @@
 				};
 
 				scope.deleteTech = function(selectedTech) {
+					console.log('Deleting: ' + selectedTech.name);
 					scope.myTechs.technologies.splice(techIndices[selectedTech.name], 1);
 					delete techIndices[selectedTech.name];
 					scope.myTechs.technologies.map(function(e) {
 						if (Array.isArray(e.has_prerequisites)) {
 							e.has_prerequisites = e.has_prerequisites.filter(function(p) {return p !== selectedTech.name;})
 						}
+						if (Array.isArray(e.is_prerequisite_for)) {
+							e.is_prerequisite_for = e.is_prerequisite_for.filter(function(p) {return p !== selectedTech.name;})	
+						}
 					})
+					scope.visualize();
+				}
+
+				scope.removeAllPrerequisites = function() {
+					scope.myTechs.technologies = scope.myTechs.technologies.map(function(e) {
+						e.is_prerequisite_for = [];
+						e.has_prerequisites = [];
+						return e;
+					});
+					scope.visualize();
 				}
 
 				var toArray = function(s) {
@@ -171,9 +196,24 @@
 					scope.visualize();
 				};
 
-				scope.createNewTree = function () {
+				scope.createNewTree = function() {
 					scope.nav = 'create';
+					scope.editor = undefined;
+					scope.myTechs.name = undefined;
+					scope.myTechs = prepareMyTechs();
+					scope.visualize();
 				};
+
+				scope.uploadNewTree = function() {
+					scope.nav = 'create';
+					scope.upload = true;
+				};
+
+				scope.processUploaded = function(myJson) {
+					parseJson(JSON.parse(myJson));
+					scope.visualize();
+					scope.upload = false;
+				}
 
 				scope.exportTree = function() {
 					console.log('Exporting');
