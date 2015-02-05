@@ -1,16 +1,21 @@
 <div ng-show="myTechs">
-	<div id="techTreeTitle" ng-click="myTechs.name = undefined">
-		{{myTechs.name}}
-	</div>
-	<form ng-hide="myTechs.name">
-		<input placeholder="tech tree name" ng-model="treeName">
-		<input type="submit" ng-click="myTechs.name = treeName" value="confirm name">
-	</form>
-	<input placeholder="find tech" ng-model="findTech">
 	<div id="techTreeList">
-		<div class="tech" ng-repeat="tech in myTechs.technologies.slice().reverse() | filter:findTech" ng-click="rebindTech(tech)">
-			<input id="delBtn" type="button" value="X" ng-click=deleteTech(tech.name)>
-			<div ng-repeat="key in myTechs.keys" class="{{key}}">{{printKey(tech[key])}}</div>
+		<div id="techTreeTitle" ng-click="myTechs.name = undefined">
+			{{myTechs.name}}
+		</div>
+		<form ng-hide="myTechs.name">
+			<input placeholder="tech tree name" ng-model="treeName">
+			<input type="submit" ng-click="myTechs.name = treeName" value="confirm name">
+		</form>
+
+		<input placeholder="find tech" ng-model="findTech">
+
+		<my-editor ng-show="nav === 'create'"></my-editor>
+		<div id="techListInner">
+			<div class="tech" ng-repeat="tech in myTechs.technologies.slice().reverse() | filter:findTech" ng-click="rebindTech(tech)">
+				<input id="delBtn" type="button" value="delete tech" ng-click=deleteTech(tech.name)>
+				<div ng-repeat="key in myTechs.keys" class="{{key}}">{{printKey(tech[key])}}</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -8,10 +8,10 @@
 		};
 	}]);
 
-	app.directive('myUpload', [function() {
+	app.directive('myMainMenu', [function() {
 		return {
 			restrict: 'E',
-			templateUrl: 'directives/upload.html'
+			templateUrl: 'directives/main_menu.html'
 		};
 	}]);
 

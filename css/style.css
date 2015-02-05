@@ -1,48 +1,145 @@
-line {
-    stroke: #555;
-}
-
-.link {
-    fill: none;
-    stroke: #666;
-    stroke-width: 1.5px;
-}
-
-.node text {
-    pointer-events: none;
-}
-
-#visualization {
+#header {
     position: fixed;
-    left: 800px;
-    top: 25px;
+    left: 600px;
+    z-index: 20;
+    text-align: center;
+    width: 700px;
+    height: 100px;
+    font-size: .75em;
+    top: -10px;
+    border: 1px solid black;
+    border-radius: 0 0 15px 15px;
+    background-color: antiquewhite;
+    box-shadow: 10px 10px 10px #444444;
+}
+
+#header cite {
+    margin: 10px;
+}
+
+#header small {
+    margin: 0 10px;
+}
+
+#main-menu {
+    border: 1px solid black;
+    border-radius: 0 0 15px 0;
+    width: 450px;
+    height: 30px;
+    text-align: center;
+    margin-top: -10px;
+    padding: 10px;
+    padding-top: 20px;
+    margin-left: -450px;
+    background-color: #d8c9b5;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+#main-menu:hover {
+    margin-left: -20px;
+    background-color: antiquewhite;
+    box-shadow: 10px 10px 10px #444444;
+}
+
+#main-menu input {
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: antiquewhite;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+#main-menu input:hover {
+    background-color: bisque;
+    box-shadow: 0 0 4px #000;
+    color: orangered;
+}
+
+#techTreeList {
+    position: relative;
+    z-index: 10;
+    margin-top: 10px;
+    margin-left: -874px;
+    padding-left: 30px;
+    padding-right: 20px;
+    width: 844px;
+    border: 1px solid black;
+    border-radius: 0 15px 15px 0;
+    background-color: #d8c9b5;;
+    text-align: center;
+    height: 850px;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+#techTreeList:hover {
+    margin-top: 10px;
+    margin-left: -30px;
+    box-shadow: 10px 10px 10px #444444;
+    background-color: antiquewhite;
 }
 
 #techEditor {
-    position: fixed;
-    top: 75px;
-    left: 500px;
-    width: 300px;
+    position:relative;
+    top: 100px;
+    left: 0px;
+    width: 350px;
+    height: 300px;
     text-align: center;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    float:right;
 }
 
 #techEditor input {
     width: 280px;
-    margin-bottom: 15px
+    margin-bottom: 15px;
 }
 
-#techList {
-    position: absolute;
-    top:40px;
+#techListInner {
+    width: 470px;
+    height: 740px;
+    margin-top: 10px;
+    overflow-y: auto;
+}
+
+#techTreeTitle  {
+    font-size: 2em;
+    padding: 10px;
 }
 
 #delBtn {
-    position: relative;
-    margin-left: 400px;
-    margin-top: -1px;
-    height: 20px;
-    width: 22px;
+    position: absolute;
+    margin-left: 138px;
+    margin-top: 55px;
+    height: 40px;
+    width: 152px;
+    z-index: 0;
     border: 1px solid black;
+    border-radius: 10px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+#delBtn:hover {
+    background-color: darkred;
+    color: yellow;
 }
 
 .tech {
@@ -50,16 +147,29 @@ line {
     width: 400px;
     position: relative;
     border:1px solid black;
+    border-radius: 5px;
+    box-shadow: -10px 10px 5px #888888;
     margin-top: 10px;
-    padding-left: 15px;
     font-size: 11px;
+    left: 8px;
+    background-color: #d8c9b5;
+}
+
+.tech:hover {
+    height: 150px;
+    width: 400px;
+    margin-top: 10px;
+    font-size: 11px;
+    left: 8px;
+    background-color: antiquewhite;
+    box-shadow: 0 0 10px #f00;
 }
 
 .tech .name {
     position: absolute;
-    top: 5px;
+    top: 4px;
     left: 100px;
-    width: 200px;
+    width: 198px;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
@@ -68,25 +178,29 @@ line {
 .tech .has_prerequisites {
     position: absolute;
     width: 100px;
-    padding: 2px;
-    top: 5px;
-    right: 300px;
+    top: 4px;
+    left: -1px;
+    width: 96px;
+    padding-left: 2px;
+    padding-right: 2px;
+    right: -500px;
     text-align: center;
     font-size: 10px;
 }
 
 .tech .is_prerequisite_for {
-    position: absolute;
-    width: 100px;
-    padding: 2px;
-    top: 5px;
-    left: 300px;
+    position:absolute;
+    width: 96px;
+    padding-left: 2px;
+    padding-right: 2px;
+    top: 4px;
+    left: 299px;
     text-align: center;
     font-size: 10px;
 }
 
 .tech .general_effect {
-    position: absolute;
+    position: relative;
     width: 300px;
     top: 30px;
     left: 50px;
@@ -124,4 +238,34 @@ line {
     left: 10px;
     text-align: center;
     
+}
+
+#visualization {
+    position: absolute;
+    z-index: 5;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: antiquewhite;
+    margin-top: -852px;
+    margin-left: 34px;
+    width: 1860px;
+    height: 850px;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -o-transition: 1s;
+    transition: 1s;
+}
+
+line {
+    stroke: #555;
+}
+
+.link {
+    fill: none;
+    stroke: #666;
+    stroke-width: 1.5px;
+}
+
+.node text {
+    pointer-events: none;
 }

@@ -6,13 +6,12 @@
 			restrict: 'E',
 			templateUrl:'directives/visualization.html',
 			link: function link(scope, element, attrs) {
-				var w = 1100,
-					h = 900;
+				var w = 1805,
+					h = 850;
 
 				var svg = d3.select("#visualization").append("svg:svg")
 						.attr("width", w)
-						.attr("height", h)
-						.attr("float", 'right');
+						.attr("height", h);
 
 				scope.visualize = function() {
 					var technologies = scope.myTechs.technologies.slice();
@@ -39,8 +38,6 @@
 						}
 					}
 
-					//console.log(links);
-
 
 					if (svg !== {}) {
 						d3.select("#visualization svg").html("");
@@ -50,7 +47,7 @@
 						.nodes(nodes)
 						.links(links)
 						.size([w, h])
-						.charge(-500)
+						.charge(-750)
 						.start();
 
 					var link = svg.selectAll("line.link")
@@ -58,7 +55,7 @@
 						.enter()
 							.append("svg:line")
 								.attr("class", "link")
-								.attr("marker-end", "url(#end)");;
+								.attr("marker-end", "url(#end)");
 
 					// build the arrow.
 					svg.append("svg:defs").selectAll("marker")
