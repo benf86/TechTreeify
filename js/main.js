@@ -149,16 +149,16 @@
 					scope.rebindTech(scope.myTechs.technologies[scope.myTechs.numberOfTechs - 1]);
 				};
 
-				scope.deleteTech = function(selectedTech) {
-					console.log('Deleting: ' + selectedTech.name);
-					scope.myTechs.technologies.splice(techIndices[selectedTech.name], 1);
-					delete techIndices[selectedTech.name];
+				scope.deleteTech = function(selectedTechName) {
+					indexTechs();
+					scope.myTechs.technologies.splice(techIndices[selectedTechName], 1);
+					delete techIndices[selectedTechName];
 					scope.myTechs.technologies.map(function(e) {
 						if (Array.isArray(e.has_prerequisites)) {
-							e.has_prerequisites = e.has_prerequisites.filter(function(p) {return p !== selectedTech.name;})
+							e.has_prerequisites = e.has_prerequisites.filter(function(p) {return p !== selectedTechName;})
 						}
 						if (Array.isArray(e.is_prerequisite_for)) {
-							e.is_prerequisite_for = e.is_prerequisite_for.filter(function(p) {return p !== selectedTech.name;})	
+							e.is_prerequisite_for = e.is_prerequisite_for.filter(function(p) {return p !== selectedTechName;})	
 						}
 					})
 					scope.visualize();
@@ -216,7 +216,6 @@
 				}
 
 				scope.exportTree = function() {
-					console.log('Exporting');
 					scope.nav = 'export';
 					createDescendants();
 					scope.visualize();

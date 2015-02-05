@@ -9,7 +9,7 @@
 	<input placeholder="find tech" ng-model="findTech">
 	<div id="techTreeList">
 		<div class="tech" ng-repeat="tech in myTechs.technologies.slice().reverse() | filter:findTech" ng-click="rebindTech(tech)">
-			<input id="delBtn" type="button" value="X" ng-click=deleteTech(tech)>
+			<input id="delBtn" type="button" value="X" ng-click=deleteTech(tech.name)>
 			<div ng-repeat="key in myTechs.keys" class="{{key}}">{{printKey(tech[key])}}</div>
 		</div>
 	</div>

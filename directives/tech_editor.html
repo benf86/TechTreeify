@@ -4,5 +4,5 @@
 			<input type="button" value="export tech tree" ng-click="exportTree()" ng-show="myTechs.name">
 			<input type="button" value="remove all prerequisites" ng-click="removeAllPrerequisites()" ng-show="editor">
 			<input id="uploadField" ng-show="upload" type="text" ng-model="uploadField">
-			<input id="uploadField" ng-show="upload" type="button" value="process JSON" ng-click="processUploaded(uploadField)">
+			<input id="uploadField" placeholder="Paste TechTree JSON here" ng-show="upload" type="button" value="process JSON" ng-click="processUploaded(uploadField)">
 </form>
